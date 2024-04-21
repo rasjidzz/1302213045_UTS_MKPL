@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Employee {
+public class Employee implements TaxCalculable{
 
 	private String employeeId;
 	private String firstName;
@@ -45,7 +45,7 @@ public class Employee {
 		childNames = new LinkedList<String>();
 		childIdNumbers = new LinkedList<String>();
 	}
-	
+	@Override
 	public void setMonthlySalary(int grade) {	
 		if (grade == 1) {
 			monthlySalary = 3000000;
@@ -64,25 +64,25 @@ public class Employee {
 			}
 		}
 	}
-	
+	@Override
 	public void setAnnualDeductible(int deductible) {	
 		this.annualDeductible = deductible;
 	}
-	
+	@Override
 	public void setAdditionalIncome(int income) {	
 		this.otherMonthlyIncome = income;
 	}
-	
+	@Override
 	public void setSpouse(String spouseName, String spouseIdNumber) {
 		this.spouseName = spouseName;
 		this.spouseIdNumber = idNumber;
 	}
-	
+	@Override
 	public void addChild(String childName, String childIdNumber) {
 		childNames.add(childName);
 		childIdNumbers.add(childIdNumber);
 	}
-	
+	@Override
 	public int getAnnualIncomeTax() {
 		LocalDate date = LocalDate.now();
 		
